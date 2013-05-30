@@ -34,7 +34,7 @@ var foobarCrc32Combined = crcUtils.crc32_combine(
   bar.length
 ); 
 
-// Endianness prepared for GZIP format
+// CRC32 are the same but Endianness is prepared for GZIP format
 console.log(foobarCrc32);         // <Buffer 9e f6 1f 95>
 console.log(foobarCrc32Combined); // <Buffer 95 1f f6 9e>
 ```
