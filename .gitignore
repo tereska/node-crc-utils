@@ -1,0 +1,3 @@
+build/
+bin/crc32.node
+node_modules/
