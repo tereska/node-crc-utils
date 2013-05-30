@@ -21,10 +21,10 @@ function createZFullFlush(userBuffer, cb){
 var gzipHeader = new Buffer([0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03]);
 var chunksEndBoundary = new Buffer([0x03, 0x00]);
 var chunks = [];
-createZFullFlush(new Buffer('slawek '), function(chunk1){
-  createZFullFlush(new Buffer('janecki '), function(chunk2){
-    createZFullFlush(new Buffer('rozwalil '), function(chunk3){
-      createZFullFlush(new Buffer('gzipa!'), function(chunk4){
+createZFullFlush(new Buffer('raz '), function(chunk1){
+  createZFullFlush(new Buffer('dwa '), function(chunk2){
+    createZFullFlush(new Buffer('trzy '), function(chunk3){
+      createZFullFlush(new Buffer('BANG!'), function(chunk4){
         chunks.push(chunk1, chunk2, chunk3, chunk4);
       });
     });
