@@ -80,32 +80,12 @@ unsigned long crc32_combine(unsigned long crc1, unsigned long crc2, long len2) {
 }
 
 
-/*
-int main () {
-  unsigned long crc1 = 0x8c736521;
-  unsigned long crc2 = 0x76ff8caa;
-  unsigned int combine = crc32_combine(crc1, crc2, 3); // <Buffer 9e f6 1f 95> 
-  printf("%x\n\n", combine);
-  
-  unsigned long even[GF2_DIM];
-  even[0] = 5;
-  even[1] = 6;
-  unsigned long *mat = even;
-  printf("%x\n", *mat);
-  mat++;
-  printf("%x\n", *mat);
-  return 0;
-}
-*/
-
 
 using namespace v8;
 using namespace node;
 
 Handle<Value> crc32_combine(const Arguments& args) {
   HandleScope scope;
-  //unsigned long crc1 = 0x8c736521;
-  //unsigned long crc2 = 0x76ff8caa;
   
   if (args.Length() < 3) {
       ThrowException(Exception::TypeError(String::New("Wrong number of arguments")));
@@ -129,13 +109,11 @@ Handle<Value> crc32_combine(const Arguments& args) {
   Local<Function> bufferConstructor = Local<Function>::Cast(globalObj->Get(String::New("Buffer")));
   Handle<Value> constructorArgs[3] = { slowBuffer->handle_, v8::Integer::New(length), v8::Integer::New(0) };
   Local<Object> actualBuffer = bufferConstructor->NewInstance(3, constructorArgs);
-  return scope.Close(actualBuffer); //<Buffer 9e f6 1f 95> 
+  return scope.Close(actualBuffer);
 }
 
 Handle<Value> crc32_combine_multi(const Arguments& args) {
   HandleScope scope;
-  //unsigned long crc1 = 0x8c736521;
-  //unsigned long crc2 = 0x76ff8caa;
   
   if (args.Length() < 1) {
       ThrowException(Exception::TypeError(String::New("Wrong number of arguments")));
@@ -188,7 +166,7 @@ Handle<Value> crc32_combine_multi(const Arguments& args) {
   retValObj->Set(String::NewSymbol("intLength"), numRetLen);
   retValObj->Set(String::NewSymbol("bufferLength"), actualBufferLen);
   
-  return scope.Close(retValObj); //<Buffer 9e f6 1f 95> 
+  return scope.Close(retValObj);
 }
 
 void init(Handle<Object> exports) {
