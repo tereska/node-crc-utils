@@ -1,16 +1,29 @@
 {
-    "name": "crc-utils",
-    "version": "0.9.9",
-    "description": "CRC Utils. Combines two or more CRC32 checksums into new one.",
-    "keywords": ["crc32", "crc32_combine", "crc", "gzip"],
-    "author": "Sławomir Janecki <janecki@gmail.com>",
-    "dependencies": {},
-    "main": "./build/Release/crc32.node",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/DreamLab/crc32_combine.git"
-    },
-    "engines": {
-        "node": ">= 0.8.0" 
+  "name": "crc-utils",
+  "version": "0.9.9",
+  "description": "CRC Utils. Combines two or more CRC32 checksums into new one.",
+  "keywords": [
+    "crc32",
+    "crc32_combine",
+    "crc",
+    "gzip"
+  ],
+  "author": "Sławomir Janecki <janecki@gmail.com>",
+  "contributors": [
+    {
+      "name": "Drew Peterson",
+      "email": "peterson.drew@gmail.com"
     }
+  ],
+  "dependencies": {
+    "nan": "^1.8.4"
+  },
+  "main": "./build/Release/crc32.node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DreamLab/crc32_combine.git"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  }
 }
