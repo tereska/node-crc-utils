@@ -1,28 +1,27 @@
 {
-  "targets": [
-    {
-        "target_name": "crc32",
-        "sources": [ "src/crc32.cc" ]
-    },
-    {
-        "target_name": "after_build",
-        "type": "none",
-        "dependencies": [
-            "crc32"
-        ],
-        "actions": [
-            {
-                "action_name": "symlink",
-                "inputs": [
-                    "<@(PRODUCT_DIR)/crc32.node"
-                ],
-                "outputs": [
-                    "<(module_root_dir)/bin/crc32.node"
-                ],
-                "action": ["ln", "-s", "<@(PRODUCT_DIR)/crc32.node", "<(module_root_dir)/bin/crc32.node"]
-            }
-        ]
-    }
-  ]
+    "targets": [
+        {
+            "target_name": "crc32",
+            "sources": [ "src/crc32.cc" ],
+            "include_dirs": [
+                "<!(node -e \"require('nan')\")"
+            ],
+        },
+        {
+            "target_name": "after_build",
+            "type": "none",
+            "dependencies": [
+                "crc32"
+            ],
+            "copies": [
+                {
+                    "destination": "<(module_root_dir)/bin/",
+                    "files": [
+                        "<@(PRODUCT_DIR)/crc32.node"
+                    ]
+                }
+            ]
+        }
+    ]
 }
 
